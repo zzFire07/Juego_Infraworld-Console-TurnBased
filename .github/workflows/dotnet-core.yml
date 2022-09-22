@@ -1,0 +1,25 @@
+name: Build & Test Running 
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Configurando .Net 6...
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.400
+    - name: Instalando dependencias..
+      run: dotnet restore
+    - name: Compilando...
+      run: dotnet build --configuration Release --no-restore
+    - name: Ejecutando Tests...
+      run: dotnet test --no-restore --verbosity normal
