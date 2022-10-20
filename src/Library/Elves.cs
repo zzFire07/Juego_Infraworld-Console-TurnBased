@@ -1,13 +1,13 @@
-namespace Library
+namespace RoleplayGame
 {
-    public class Elves : Character
+    public class Elves : ICharacters
     {
-        public Elves(string name)
+        public Elves (string name)
         {
             this.Name = name;
             this.Health = 100;
-            this.AttackValue = 20;
-            this.DefenseValue = 20;
+            this.AttackValue = 100;
+            this.DefenseValue = 100;
             this.IsDead = false;
         }
     }
