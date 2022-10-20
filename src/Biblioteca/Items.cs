@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RoleplayGame
 {
-    public interface Items
+    public interface IItems
     {
         protected int attackValue { get; set; }  
         protected int defenseValue { get; set; } 
