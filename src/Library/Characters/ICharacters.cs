@@ -8,8 +8,9 @@ namespace RoleplayGame
         protected int DefenseValue { get; set; }
         protected bool IsDead { get; set; }
         protected void MakeAttack(ICharacters character);
-        protected void Cure();
-        protected void EquipItem(IItem item);
-        protected void RemoveItem(IItem item);
+        protected void Cure(int cantidad);
+        public void Damage(int cantidad);
+        protected void EquipItem(IItems item);
+        protected void RemoveItem(IItems item);
     }
 }

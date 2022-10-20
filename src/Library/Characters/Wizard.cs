@@ -2,23 +2,24 @@ using System.Collections.Generic;
 
 namespace RoleplayGame
 {
-    public class Wizard : IMagic, ICharacter
+    public class Wizard : IMagic, ICharacters
     {
-        public string Name { get; }
+        public string Name { get; set; }
 
         public Wizard(string name)
         {
             this.Name = name;
+            this.Health = 100;
+            this.AttackValue = 20;
+            this.DefenseValue = 20;
             this.IsDead = false;
         }
 
-        private int Health = 100;
+        private int Health {get; set; }
+        public int AttackValue  { get; set; }
+        public int DefenseValue { get; set; }
 
-        public int AttackValue = 20;
-
-        public int DefenseValue = 20;
-
-        public Items EquippedItem { get; set; }
+        public IItems EquippedItem { get; set; }
 
         public bool IsDead { get; set; }
 
@@ -29,9 +30,14 @@ namespace RoleplayGame
                 this.Health = 100;
         }
 
-        public void MakeAttack(ICharacter character)
+        public void Damage(int cantidad)
         {
-            character.ModifyHealth(- this.AttackValue);
+            this.Health -= cantidad;
+        }
+
+        public void MakeAttack(ICharacters character)
+        {
+            character.Damage(this.AttackValue);
         }
 
         private void UseMagic()
