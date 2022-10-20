@@ -1,15 +1,15 @@
 namespace RoleplayGame
 {
-    public interface ICharacter
+    public interface ICharacters
     {
-        public string Name { get; set; }
-        public int Health { get; set; }
-        public int AttackValue { get; set; }
-        public int DefenseValue { get; set; }
-        public bool IsDead { get; set; }
-        public void MakeAttack(ICharacter character);
-        public void Cure();
-        public void EquipItem(IItem item);
-        public void RemoveItem(IItem item);
+        protected string Name { get; set; }
+        protected int Health { get; set; }
+        protected int AttackValue { get; set; }
+        protected int DefenseValue { get; set; }
+        protected bool IsDead { get; set; }
+        protected void MakeAttack(ICharacters character);
+        protected void Cure();
+        protected void EquipItem(IItem item);
+        protected void RemoveItem(IItem item);
     }
 }
