@@ -1,12 +1,16 @@
 namespace RoleplayGame
 {
-    public class Sword : IItem
+    public class Sword : IItems
     {
         public Sword()
         {
-            this.AttackValue = 40;
-            this.DefenseValue = 0;
-            this.IsMagic = false;
+            this.attackValue = 40;
+            this.defenseValue = 0;
+            this.isMagic = false;
         }
+
+        public int attackValue { get; set; }
+        public int defenseValue { get; set; }
+        public bool isMagic { get; set; }
     }
 }

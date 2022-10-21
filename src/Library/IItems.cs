@@ -26,25 +26,5 @@ namespace RoleplayGame
         {
             return this.isMagic;
         }
-        
-
-       
-       
-       
-       
-        public void EquipItem(Items item)
-        {
-            Inventory.AddItem(item);
-        }
-
-
-        public void UnEquipItem(Items item)
-        {
-            Inventory.RemoveItem(item);
-        }
-
-
-
     }
-
 }

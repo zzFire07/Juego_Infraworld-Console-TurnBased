@@ -4,8 +4,6 @@ namespace RoleplayGame
 {
     public class Wizard : IMagic, ICharacters
     {
-        public string Name { get; set; }
-
         public Wizard(string name)
         {
             this.Name = name;
@@ -15,7 +13,8 @@ namespace RoleplayGame
             this.IsDead = false;
         }
 
-        private int Health {get; set; }
+        public string Name { get; set; }
+        public int Health {get; set; }
         public int AttackValue  { get; set; }
         public int DefenseValue { get; set; }
 

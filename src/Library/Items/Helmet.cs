@@ -1,12 +1,16 @@
 namespace RoleplayGame
 {
-    public class Helmet : IItem
+    public class Helmet : IItems
     {
         public Helmet()
         {
-            this.AttackValue = 0;
-            this.DefenseValue = 20;
-            this.IsMagic = false;
+            this.attackValue = 0;
+            this.defenseValue = 20;
+            this.isMagic = false;
         }
+
+        public int attackValue { get; set; }
+        public int defenseValue { get; set; }
+        public bool isMagic { get; set; }
     }
 }

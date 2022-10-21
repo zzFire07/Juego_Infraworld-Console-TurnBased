@@ -4,9 +4,13 @@ namespace RoleplayGame
     {
         public Spell()
         {
-            this.AttackValue = 70;
-            this.DefenseValue = 70;
-            this.IsMagic = false;
+            this.attackValue = 70;
+            this.defenseValue = 70;
+            this.isMagic = true;
         }
+
+        public int attackValue { get; set; }
+        public int defenseValue { get; set; }
+        public bool isMagic { get; set; }
     }
 }

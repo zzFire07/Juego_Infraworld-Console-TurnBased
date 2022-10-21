@@ -1,6 +1,6 @@
 namespace RoleplayGame
 {
-    public class Dwarf : ICharacter
+    public class Dwarf : ICharacters
     {
         ICharacters dwarf;
         public Dwarf(string name)
@@ -12,8 +12,8 @@ namespace RoleplayGame
             this.IsDead = false;
         }
 
-        private string Name { get; set; }
-        private int Health {get; set; }
+        public string Name { get; set; }
+        public int Health {get; set; }
         public int AttackValue  { get; set; }
         public int DefenseValue { get; set; }
 
