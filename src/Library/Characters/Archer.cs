@@ -8,13 +8,13 @@ namespace RoleplayGame
             this.Name = name;
         }
 
-        public string Name { get; set; }
+        public override string Name { get; set; }
         
         public Bow Bow { get; set; }
 
         public Helmet Helmet { get; set; }
 
-        public bool IsDead
+        public override bool IsDead
         {
             get
             {
@@ -22,7 +22,7 @@ namespace RoleplayGame
             }
         }
 
-        public int AttackValue
+        public override int AttackValue
         {
             get
             {
@@ -30,7 +30,7 @@ namespace RoleplayGame
             }
         }
 
-        public int DefenseValue
+        public override int DefenseValue
         {
             get
             {
@@ -38,7 +38,7 @@ namespace RoleplayGame
             }
         }
 
-        public int Health
+        public override int Health
         {
             get
             {
@@ -50,7 +50,7 @@ namespace RoleplayGame
             }
         }
 
-        public void ReceiveAttack(int power)
+        public override void ReceiveAttack(int power)
         {
             if (this.DefenseValue < power)
             {
@@ -58,7 +58,7 @@ namespace RoleplayGame
             }
         }
 
-        public void Cure()
+        public override void Cure()
         {
             this.Health = 100;
         }
