@@ -1,15 +1,13 @@
 namespace RoleplayGame
 {
-    public class Shield : IItems
+    public class Shield : IDefenseItem
     {
-        public Shield()
+        public int DefenseValue
         {
-            this.attackValue = 0;
-            this.defenseValue = 14;
-            this.isMagic = false;
+            get
+            {
+                return 14;
+            }
         }
-        public int attackValue { get; set; }
-        public int defenseValue { get; set; }
-        public bool isMagic { get; set; }
     }
 }

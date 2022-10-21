@@ -1,17 +1,13 @@
 namespace RoleplayGame
 {
-    public class Axe: IItems
+    public class Axe : IAttackItem
     {
-        public Axe()
+        public int AttackValue 
         {
-            this.attackValue = 25;
-            this.defenseValue = 0;
-            this.isMagic = false;
+            get
+            {
+                return 25;
+            } 
         }
-        public int attackValue { get; set; }
-        public int defenseValue { get; set; }
-        public bool isMagic { get; set; }
     }
-    
-    
 }
