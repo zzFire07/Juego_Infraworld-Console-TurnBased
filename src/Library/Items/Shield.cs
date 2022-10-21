@@ -1,14 +1,13 @@
 namespace RoleplayGame
 {
-    public class Spell : IItems
+    public class Shield : IItems
     {
-        public Spell()
+        public Shield()
         {
-            this.attackValue = 70;
-            this.defenseValue = 70;
-            this.isMagic = true;
+            this.attackValue = 0;
+            this.defenseValue = 14;
+            this.isMagic = false;
         }
-
         public int attackValue { get; set; }
         public int defenseValue { get; set; }
         public bool isMagic { get; set; }

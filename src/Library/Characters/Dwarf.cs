@@ -1,8 +1,9 @@
 namespace RoleplayGame
 {
-    public class Elves : ICharacters
+    public class Dwarf : ICharacters
     {
-        public Elves (string name)
+        ICharacters dwarf;
+        public Dwarf(string name)
         {
             this.Name = name;
             this.Health = 100;

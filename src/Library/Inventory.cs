@@ -4,19 +4,19 @@ namespace RoleplayGame
 {
     public class Inventory
         {
-            private List<Items> inventory = new List<Items>();
+            private List<IItems> inventory = new List<IItems>();
             
-            public List<Items> GetInventory()
+            public List<IItems> GetInventory()
                 {
                     return this.inventory;
                 }
 
-            public void AddItem(Items item)
+            public void AddItem(IItems item)
             {
                 this.inventory.Add(item);
             }
 
-            public void RemoveItem(Items item)
+            public void RemoveItem(IItems item)
             {
                 this.inventory.Remove(item);
             }
