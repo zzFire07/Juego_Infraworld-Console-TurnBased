@@ -1,49 +1,67 @@
-using System.Collections.Generic;
-
 namespace RoleplayGame
 {
-    public class Wizard : IMagic, ICharacters
+    public class Wizard : ICharacters
     {
+        public int health{get;set;} = 100;
+
         public Wizard(string name)
         {
             this.Name = name;
-            this.Health = 100;
-            this.AttackValue = 20;
-            this.DefenseValue = 20;
-            this.IsDead = false;
         }
 
         public string Name { get; set; }
-        public int Health {get; set; }
-        public int AttackValue  { get; set; }
-        public int DefenseValue { get; set; }
 
-        public IItems EquippedItem { get; set; }
+        public SpellsBook SpellsBook { get; set; }
 
-        public bool IsDead { get; set; }
+        public Staff Staff { get; set; }
 
-        public void Cure(int cantidad)
+        public bool IsDead
         {
-            this.Health += cantidad;
-            if (this.Health > 100)
-                this.Health = 100;
+            get
+            {
+                return this.Health <= 0;
+            }
         }
 
-        public void Damage(int cantidad)
+        public int AttackValue
         {
-            this.Health -= cantidad;
+            get
+            {
+                return SpellsBook.AttackValue + Staff.AttackValue;
+            }
         }
 
-        public void MakeAttack(ICharacters character)
+        public int DefenseValue
         {
-            character.Damage(this.AttackValue);
+            get
+            {
+                return SpellsBook.DefenseValue + Staff.DefenseValue;
+            }
         }
 
-        private void UseMagic()
+        public int Health
         {
-            ///
-            /// 
-            ///
+            get
+            {
+                return this.health;
+            }
+            private set
+            {
+                this.health = value < 0 ? 0 : value;
+            }
+        }
+
+        public void ReceiveAttack(int power)
+        {
+            if (this.DefenseValue < power)
+            {
+                this.Health -= power - this.DefenseValue;
+            }
+        }
+
+        public void Cure()
+        {
+            this.Health = 100;
         }
     }
 }

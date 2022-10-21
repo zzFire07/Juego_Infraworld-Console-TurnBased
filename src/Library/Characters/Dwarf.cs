@@ -2,47 +2,68 @@ namespace RoleplayGame
 {
     public class Dwarf : ICharacters
     {
-        ICharacters dwarf;
+        public int health {get; set;} = 100;
+
         public Dwarf(string name)
         {
             this.Name = name;
-            this.Health = 100;
-            this.AttackValue = 100;
-            this.DefenseValue = 100;
-            this.IsDead = false;
         }
 
         public string Name { get; set; }
-        public int Health {get; set; }
-        public int AttackValue  { get; set; }
-        public int DefenseValue { get; set; }
 
-        public IItems EquippedItem { get; set; }
+        public Axe Axe { get; set; }
 
-        public bool IsDead { get; set; }
+        public Shield Shield { get; set; }
 
-        public void Cure(int cantidad)
+        public Helmet Helmet { get; set; }
+
+        public bool IsDead
         {
-            this.Health += cantidad;
-            if (this.Health > 100)
-                this.Health = 100;
+            get
+            {
+                return this.Health <= 0;
+            }
         }
 
-        public void Damage(int cantidad)
+        public int AttackValue
         {
-            this.Health -= cantidad;
+            get
+            {
+                return Axe.AttackValue;
+            }
         }
 
-        public void MakeAttack(ICharacters character)
+        public int DefenseValue
         {
-            character.Damage(this.AttackValue);
+            get
+            {
+                return Shield.DefenseValue + Helmet.DefenseValue;
+            }
         }
 
-        private void UseMagic()
+        public int Health
         {
-            ///
-            /// 
-            ///
+            get
+            {
+                return this.health;
+            }
+            private set
+            {
+                this.health = value < 0 ? 0 : value;
+            }
+        }
+
+        public void ReceiveAttack(int power)
+        {
+            if (this.DefenseValue < power)
+            {
+                this.Health -= power - this.DefenseValue;
+            }
+        }
+
+        public void Cure()
+        {
+            this.Health = 100;
         }
     }
 }

@@ -2,30 +2,22 @@ namespace RoleplayGame
 {
     public interface ICharacters
     {
-        protected string Name { get; set; }
-        protected int Health { get; set; }
-        protected int AttackValue { get; set; }
-        protected int DefenseValue { get; set; }
-        protected bool IsDead { get; set; }
-        protected void MakeAttack(ICharacters character)
+        public string Name { get; set; }
+        public int health { get; set; }
+        public int AttackValue { get;}
+        public int DefenseValue { get;}
+        public bool IsDead { get;}
+        public void ReceiveAttack(int power)
         {
-            ////
+            if (this.DefenseValue < power)
+            {
+                this.health -= power - this.DefenseValue;
+            }
         }
-        protected void Cure(int cantidad)
+
+        public void Cure()
         {
-            this.Health += cantidad;
-        }
-        public void Damage(int cantidad)
-        {
-            this.Health -= cantidad;
-        }
-        protected void EquipItem(IItems item)
-        {
-            ////
-        }
-        protected void RemoveItem(IItems item)
-        {
-            ////
+            this.health = 100;
         }
     }
 }

@@ -1,20 +1,20 @@
 namespace RoleplayGame
 {
-    public class Staff : IMagicItem
+    public class Spell : IMagicItem
     {
-        public int AttackValue 
+        public int AttackValue
         {
             get
             {
-                return 100;
-            } 
+                return 70;
+            }
         }
 
         public int DefenseValue
         {
             get
             {
-                return 100;
+                return 70;
             }
         }
     }

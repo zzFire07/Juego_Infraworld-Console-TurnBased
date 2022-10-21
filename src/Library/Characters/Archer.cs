@@ -1,21 +1,18 @@
 namespace RoleplayGame
 {
-    public class Knight : ICharacters
+    public class Archer : ICharacters
     {
-        public int health {get;set;}= 100;
-
-        public Knight(string name)
+        public int health{ get; set; } = 100;
+        public Archer(string name)
         {
             this.Name = name;
         }
 
         public string Name { get; set; }
+        
+        public Bow Bow { get; set; }
 
-        public Sword Sword { get; set; }
-
-        public Shield Shield { get; set; }
-
-        public Armor Armor { get; set; }
+        public Helmet Helmet { get; set; }
 
         public bool IsDead
         {
@@ -29,7 +26,7 @@ namespace RoleplayGame
         {
             get
             {
-                return Sword.AttackValue;
+                return Bow.AttackValue;
             }
         }
 
@@ -37,7 +34,7 @@ namespace RoleplayGame
         {
             get
             {
-                return Armor.DefenseValue + Shield.DefenseValue;
+                return Helmet.DefenseValue;
             }
         }
 
