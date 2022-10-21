@@ -1,23 +1,14 @@
 namespace RoleplayGame
 {
-    public interface ICharacters
+    public abstract class ICharacters
     {
-        public string Name { get; set; }
-        public int health { get; set; }
-        public int AttackValue { get;}
-        public int DefenseValue { get;}
-        public bool IsDead { get;}
-        public void ReceiveAttack(int power)
-        {
-            if (this.DefenseValue < power)
-            {
-                this.health -= power - this.DefenseValue;
-            }
-        }
+        public abstract string Name { get; set; }
+        public abstract int Health { get; set; }
+        public abstract int AttackValue { get;}
+        public abstract int DefenseValue { get;}
+        public abstract bool IsDead { get;}
 
-        public void Cure()
-        {
-            this.health = 100;
-        }
+        public abstract void ReceiveAttack(int power);
+        public abstract void Cure();
     }
 }
