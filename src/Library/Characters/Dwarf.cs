@@ -1,23 +1,23 @@
 namespace RoleplayGame
 {
-    public class Dwarf : ICharacters
+    public class Dwarf : Characters
     {
-        public int health {get; set;} = 100;
-
+        public int health{ get; set; } = 100;
         public Dwarf(string name)
         {
             this.Name = name;
         }
 
-        public string Name { get; set; }
-
+        public override string Name { get; set; }
+        
         public Axe Axe { get; set; }
 
-        public Shield Shield { get; set; }
-
         public Helmet Helmet { get; set; }
-
-        public bool IsDead
+        
+        public Shield Shield {get;set; }
+        
+        
+        public override bool IsDead
         {
             get
             {
@@ -25,7 +25,7 @@ namespace RoleplayGame
             }
         }
 
-        public int AttackValue
+        public override int AttackValue
         {
             get
             {
@@ -33,7 +33,7 @@ namespace RoleplayGame
             }
         }
 
-        public int DefenseValue
+        public override int DefenseValue
         {
             get
             {
@@ -41,27 +41,29 @@ namespace RoleplayGame
             }
         }
 
-        public int Health
+        public override int Health
         {
             get
             {
                 return this.health;
             }
-            private set
+            
+             set
             {
                 this.health = value < 0 ? 0 : value;
             }
+            
+            
         }
 
-        public void ReceiveAttack(int power)
+        public override void ReceiveAttack(int power)
         {
             if (this.DefenseValue < power)
             {
                 this.Health -= power - this.DefenseValue;
             }
         }
-
-        public void Cure()
+        public override void Cure()
         {
             this.Health = 100;
         }

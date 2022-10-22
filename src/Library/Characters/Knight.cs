@@ -1,23 +1,23 @@
 namespace RoleplayGame
 {
-    public class Knight : ICharacters
+    public class Knight : Characters
     {
-        public int health {get;set;}= 100;
-
+        public int health{ get; set; } = 100;
         public Knight(string name)
         {
             this.Name = name;
         }
 
-        public string Name { get; set; }
-
+        public override string Name { get; set; }
+        
         public Sword Sword { get; set; }
 
-        public Shield Shield { get; set; }
-
-        public Armor Armor { get; set; }
-
-        public bool IsDead
+        public Armor Armor  { get; set; }
+        
+        public Shield Shield {get;set; }
+        
+        
+        public override bool IsDead
         {
             get
             {
@@ -25,7 +25,7 @@ namespace RoleplayGame
             }
         }
 
-        public int AttackValue
+        public override int AttackValue
         {
             get
             {
@@ -33,37 +33,43 @@ namespace RoleplayGame
             }
         }
 
-        public int DefenseValue
+        public override int DefenseValue
         {
             get
             {
-                return Armor.DefenseValue + Shield.DefenseValue;
+                return Shield.DefenseValue + Armor.DefenseValue;
             }
         }
 
-        public int Health
+        public override int Health
         {
             get
             {
                 return this.health;
             }
-            private set
+            
+             set
             {
                 this.health = value < 0 ? 0 : value;
             }
+            
+            
         }
 
-        public void ReceiveAttack(int power)
+        public override void ReceiveAttack(int power)
         {
             if (this.DefenseValue < power)
             {
                 this.Health -= power - this.DefenseValue;
+        
             }
         }
 
-        public void Cure()
+
+        public override void Cure()
         {
             this.Health = 100;
         }
+
     }
 }

@@ -1,21 +1,20 @@
 namespace RoleplayGame
 {
-    public class Wizard : ICharacters
+    public class Wizard : Characters
     {
-        public int health{get;set;} = 100;
-
+        public int health{ get; set; } = 100;
         public Wizard(string name)
         {
             this.Name = name;
         }
 
-        public string Name { get; set; }
-
-        public SpellsBook SpellsBook { get; set; }
-
+        public override string Name { get; set; }
+        
         public Staff Staff { get; set; }
 
-        public bool IsDead
+        public SpellsBook SpellsBook { get; set; }
+        
+        public override bool IsDead
         {
             get
             {
@@ -23,35 +22,38 @@ namespace RoleplayGame
             }
         }
 
-        public int AttackValue
+        public override int AttackValue
         {
             get
             {
-                return SpellsBook.AttackValue + Staff.AttackValue;
+                return Staff.AttackValue+ SpellsBook.AttackValue;
             }
         }
 
-        public int DefenseValue
+        public override int DefenseValue
         {
             get
             {
-                return SpellsBook.DefenseValue + Staff.DefenseValue;
+                return SpellsBook.DefenseValue+Staff.DefenseValue;
             }
         }
 
-        public int Health
+        public override int Health
         {
             get
             {
                 return this.health;
             }
-            private set
+            
+            set
             {
                 this.health = value < 0 ? 0 : value;
             }
+            
+            
         }
 
-        public void ReceiveAttack(int power)
+        public override void ReceiveAttack(int power)
         {
             if (this.DefenseValue < power)
             {
@@ -59,9 +61,12 @@ namespace RoleplayGame
             }
         }
 
-        public void Cure()
+        public override void Cure()
         {
             this.Health = 100;
+    
         }
+    
     }
+
 }
