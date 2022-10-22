@@ -10,9 +10,9 @@ namespace RoleplayGame
 
         public override string Name { get; set; }
         
-        public Staff Staff { get; set; }
+        Staff Staff = new Staff();
 
-        public SpellsBook SpellsBook { get; set; }
+        public SpellsBook SpellsBook = new SpellsBook();
         
         public override bool IsDead
         {

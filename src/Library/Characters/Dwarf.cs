@@ -10,11 +10,11 @@ namespace RoleplayGame
 
         public override string Name { get; set; }
         
-        public Axe Axe { get; set; }
+        Axe Axe = new Axe();
 
-        public Helmet Helmet { get; set; }
+        Helmet Helmet = new Helmet();
         
-        public Shield Shield {get;set; }
+        Shield Shield = new Shield();
         
         
         public override bool IsDead

@@ -11,7 +11,7 @@ namespace Test.Library
             Characters dwarf1 = new Dwarf("Pedro");
             Characters wizard1 = new Wizard("Juan");
 
-            wizard1.ReceiveAttack(dwarf1.AttackValue());
+            wizard1.ReceiveAttack(dwarf1.AttackValue);
 
             int expected1 = 100 - 25;
             int result1 = wizard1.Health;
