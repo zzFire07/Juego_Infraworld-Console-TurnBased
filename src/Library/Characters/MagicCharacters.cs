@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public class Characters
+    public class MagicCharacter
     {
-        public List<IItem> items = new List<IItem>();
+        private List<IMagicItem> magicItems = new List<IMagicItem>();
         public string Name { get; set; }
         public int Health { get; set; } = 100;
         public int AttackValue
@@ -11,26 +11,27 @@ namespace RoleplayGame
             get
             {
                 int value = 0;
-                foreach (IItem item in this.items)
+                foreach (IMagicItem item in this.magicItems)
                 {
-                    if (item is IAttackItem)
+                    if (item is IAttackMagic)
                     {
-                        value += (item as IAttackItem).AttackValue;
+                        value += (item as IAttackMagic).AttackValue;
                     }
                 }
                 return value;
             }
         }
+
         public int DefenseValue
         {
             get
             {
                 int value = 0;
-                foreach (IItem item in this.items)
+                foreach (IMagicItem item in this.magicItems)
                 {
-                    if (item is IDefenseItem)
+                    if (item is IDefenseMagic)
                     {
-                        value += (item as IDefenseItem).DefenseValue;
+                        value += (item as IDefenseMagic).DefenseValue;
                     }
                 }
                 return value;
@@ -43,13 +44,14 @@ namespace RoleplayGame
                 return this.Health <= 0;
             }
         }
-        public void EquipItem(IItem item)
+
+        public void EquipItem(IMagicItem item )
         {
-            items.Add(item);
+            magicItems.Add(item);
         }
-        public void UnequipItem(IItem item)
+        public void UnequipItem(IMagicItem item)
         {
-            items.Remove(item);
+            magicItems.Remove(item);
         }
         public void ReceiveAttack(int power)
         {

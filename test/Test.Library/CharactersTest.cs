@@ -8,8 +8,11 @@ namespace Test.Library
         [Test]
         public void TestAttack()
         {
-            Characters dwarf1 = new Dwarf("Pedro");
-            Characters wizard1 = new Wizard("Juan");
+            Axe axe = new Axe();
+            SpellsBook book = new SpellsBook();
+            book.AddSpell();
+            Dwarf dwarf1 = new Dwarf("Pedro");
+            Wizard wizard1 = new Wizard("Juan");
 
             wizard1.ReceiveAttack(dwarf1.AttackValue);
 
@@ -21,8 +24,17 @@ namespace Test.Library
         [Test]
         public void TestCure()
         {
-            Characters archer1 = new Archer("Pedro");
-            Characters knight1 = new Knight("Juan");
+            Sword sword1 = new Sword();
+            Bow bow1 = new Bow();
+            Helmet helmet1 = new Helmet();
+            Helmet helmet2 = new Helmet();
+            Archer archer1 = new Archer("Pedro");
+            Knight knight1 = new Knight("Juan");
+            archer1.EquipItem(sword1);
+            knight1.EquipItem(bow1);
+            knight1.EquipItem(helmet1);
+            archer1.EquipItem(helmet2);
+
 
             archer1.ReceiveAttack(knight1.AttackValue);
             archer1.Cure();
@@ -35,7 +47,7 @@ namespace Test.Library
         [Test]
         public void TestName()
         {
-            Characters archer2 = new Archer("Pedro");
+            Archer archer2 = new Archer("Pedro");
             
             const string expected3 = "Pedro";
             string result3 = archer2.Name;
@@ -43,10 +55,14 @@ namespace Test.Library
         }
 
         [Test]
-        public void TestDead()
+         public void TestDead()
         {
-            Characters dwarf2 = new Dwarf("Pedro");
-            Characters wizard2 = new Wizard("Juan");
+            Sword sword2 = new Sword();
+            Helmet helmet3 = new Helmet();
+            Dwarf dwarf2 = new Dwarf("Pedro");
+            Wizard wizard2 = new Wizard("Juan");
+            dwarf2.EquipItem(sword2);
+            dwarf2.EquipItem(helmet3);
 
             while(dwarf2.Health > 0)
             {
