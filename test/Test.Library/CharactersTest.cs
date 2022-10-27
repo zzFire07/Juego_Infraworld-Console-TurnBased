@@ -11,8 +11,13 @@ namespace Test.Library
             Axe axe = new Axe();
             SpellsBook book = new SpellsBook();
             book.AddSpell();
+
             Dwarf dwarf1 = new Dwarf("Pedro");
             Wizard wizard1 = new Wizard("Juan");
+
+            dwarf1.EquipItem(axe);
+            wizard1.EquipItem(book);
+
 
             wizard1.ReceiveAttack(dwarf1.AttackValue);
 
@@ -28,8 +33,10 @@ namespace Test.Library
             Bow bow1 = new Bow();
             Helmet helmet1 = new Helmet();
             Helmet helmet2 = new Helmet();
+
             Archer archer1 = new Archer("Pedro");
             Knight knight1 = new Knight("Juan");
+
             archer1.EquipItem(sword1);
             knight1.EquipItem(bow1);
             knight1.EquipItem(helmet1);
@@ -57,17 +64,23 @@ namespace Test.Library
         [Test]
          public void TestDead()
         {
+            SpellsBook book = new SpellsBook();
+            book.AddSpell();
             Sword sword2 = new Sword();
             Helmet helmet3 = new Helmet();
+
             Dwarf dwarf2 = new Dwarf("Pedro");
             Wizard wizard2 = new Wizard("Juan");
-            dwarf2.EquipItem(sword2);
+
+            wizard2.EquipItem(book);
             dwarf2.EquipItem(helmet3);
+
 
             while(dwarf2.Health > 0)
             {
                 dwarf2.ReceiveAttack(wizard2.AttackValue);
             }
+            
 
             bool expected4 = true;
             bool result4 = dwarf2.IsDead;
