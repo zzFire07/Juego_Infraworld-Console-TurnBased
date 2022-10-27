@@ -2,9 +2,9 @@
 {
     public class Knight : Characters
     {
-        public Knight(string name)
+        public Knight(string name) : base(name)
         {
-            this.Name = name;
+
         }
     }
 }

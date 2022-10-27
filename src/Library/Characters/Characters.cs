@@ -3,10 +3,16 @@ namespace RoleplayGame
 {
     public class Characters
     {
-        public List<IItem> items = new List<IItem>();
+        public IList<IItem> items = new List<IItem>();
         public string Name { get; set; }
         public int Health { get; set; } = 100;
-        public int AttackValue
+
+        public Characters(string name)
+        {
+            this.Name = name;
+        }
+
+        public virtual int AttackValue
         {
             get
             {
@@ -21,7 +27,7 @@ namespace RoleplayGame
                 return value;
             }
         }
-        public int DefenseValue
+        public virtual int DefenseValue
         {
             get
             {
