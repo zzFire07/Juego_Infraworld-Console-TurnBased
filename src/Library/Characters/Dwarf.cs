@@ -2,9 +2,9 @@
 {
     public class Dwarf : Characters
     {
-        public Dwarf(string name)
+        public Dwarf(string name) : base(name)
         {
-            this.Name = name;
+
         }
     }
 }
