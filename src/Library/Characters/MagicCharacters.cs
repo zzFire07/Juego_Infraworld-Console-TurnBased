@@ -3,7 +3,7 @@ namespace RoleplayGame
 {
     public class MagicCharacter : Characters
     {
-        public IList<IMagicItem> magicItems = new List<IMagicItem>();
+        public IList<IMagicItem> magicitems = new List<IMagicItem>();
         
         public MagicCharacter(string name) : base(name)
         {
@@ -16,7 +16,7 @@ namespace RoleplayGame
             {
                 int value = base.AttackValue;
 
-                foreach (IMagicItem item in this.magicItems)
+                foreach (IMagicItem item in this.magicitems)
                 {
                     if (item is IAttackMagic)
                     {
@@ -33,7 +33,7 @@ namespace RoleplayGame
             {
                 int value = base.DefenseValue;
 
-                foreach (IMagicItem item in this.magicItems)
+                foreach (IMagicItem item in this.magicitems)
                 {
                     if (item is IDefenseMagic)
                     {
@@ -46,12 +46,12 @@ namespace RoleplayGame
 
         public void EquipItem(IMagicItem item )
         {
-            magicItems.Add(item);
+            magicitems.Add(item);
         }
 
         public void UnequipItem(IMagicItem item)
         {
-            magicItems.Remove(item);
+            magicitems.Remove(item);
         }
     }
 }

@@ -33,7 +33,7 @@ namespace Program
             gandalf.EquipItem(espada);
             Console.WriteLine($"{gandalf.AttackValue}");
             Console.WriteLine($"{gandalf.Name} tiene equipado {gandalf.items}");
-            Console.WriteLine($"{gandalf.Name} tiene equipado {gandalf.magicItems}");
+            Console.WriteLine($"{gandalf.Name} tiene equipado {gandalf.magicitems}");
 
 
             /* TEST :)
