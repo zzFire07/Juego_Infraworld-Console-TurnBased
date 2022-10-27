@@ -1,8 +1,6 @@
 namespace RoleplayGame
 {
-    public interface IItems
+    public interface IItem 
     {
-        protected int AttackValue { get; set; }  
-        protected int DefenseValue { get; set; } 
     }
 }
