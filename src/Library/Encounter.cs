@@ -6,32 +6,32 @@ namespace RoleplayGame
 {
     public class Encounter 
     {
-        public List<Characters> EquiposHeroes = new List<Characters>();
-        public List<Characters> EquiposEnemy = new List<Characters>();
+        public List<Characters> HeroTeam = new List<Characters>();
+        public List<Characters> EnemyTeam = new List<Characters>();
     
         public void AddHeroes(Characters heroes)
         {
-            EquiposHeroes.Add(heroes);
+            HeroTeam.Add(heroes);
         }
         public void AddEnemies(Characters enemies)
         {
-            EquiposEnemy.Add(enemies);
+            EnemyTeam.Add(enemies);
         }
         
         public void RemoveHeroe(Characters heroe)
         {
-            EquiposHeroes.Remove(heroe);
+            HeroTeam.Remove(heroe);
         }
     
         public void RemoveEnemy(Characters enemy)
         {
-            EquiposEnemy.Remove(enemy);
+            EnemyTeam.Remove(enemy);
         }
 
         public void Equipos()
         {
             Console.WriteLine(" Hereoes are :");
-            foreach (Characters hero in this.EquiposHeroes)
+            foreach (Characters hero in this.HeroTeam)
             {
                 Console.WriteLine(hero.Name);
             }
@@ -39,7 +39,7 @@ namespace RoleplayGame
             Console.WriteLine(" !VS¡");
 
             Console.WriteLine(" Enemies are :");
-            foreach (Characters enemy in this.EquiposEnemy)
+            foreach (Characters enemy in this.EnemyTeam)
             {
                 Console.WriteLine(enemy.Name);
             }
@@ -47,16 +47,16 @@ namespace RoleplayGame
 
         public void EnemyAttack()
         {
-            int cantidadHeroes = EquiposHeroes.Count();
+            int cantidadHeroes = HeroTeam.Count();
             int position = 0;
 
-            foreach (Characters enemy in this.EquiposEnemy)
+            foreach (Characters enemy in this.EnemyTeam)
             {
-                EquiposHeroes[position].ReceiveAttack(enemy.AttackValue);
+                HeroTeam[position].ReceiveAttack(enemy.AttackValue);
 
-                if(EquiposHeroes[position].IsDead)
+                if(HeroTeam[position].IsDead)
                 {
-                    this.RemoveHeroe(EquiposHeroes[position]);
+                    this.RemoveHeroe(HeroTeam[position]);
                     cantidadHeroes -= 1;
                 }
 
@@ -71,18 +71,18 @@ namespace RoleplayGame
 
         public void HeroAttack()
         {
-            foreach (Characters heroe in this.EquiposHeroes)
+            foreach (Characters heroe in this.HeroTeam)
             {
                 int pos = 0;
-                int EnemiesAmount = EquiposEnemy.Count();
-                if (EquiposEnemy != null)
+                int EnemiesAmount = EnemyTeam.Count();
+                if (EnemyTeam != null)
                     while (pos < EnemiesAmount)
                     {
-                        EquiposEnemy[pos].ReceiveAttack(heroe.AttackValue);
-                        if(EquiposEnemy[pos].IsDead)
+                        EnemyTeam[pos].ReceiveAttack(heroe.AttackValue);
+                        if(EnemyTeam[pos].IsDead)
                             {
-                                heroe.AddVictoryPoints(EquiposEnemy[pos].VictoryPoints);
-                                this.RemoveEnemy(EquiposEnemy[pos]);
+                                heroe.AddVictoryPoints(EnemyTeam[pos].VictoryPoints);
+                                this.RemoveEnemy(EnemyTeam[pos]);
                                 pos -= 1;
                                 EnemiesAmount -= 1;
 
@@ -95,7 +95,7 @@ namespace RoleplayGame
                         pos += 1;
                     }  
             }
-         }
+        }
 
 
         public void DoEncounter()
@@ -107,12 +107,12 @@ namespace RoleplayGame
             {
                 this.EnemyAttack();
                 this.HeroAttack();
-                if (this.EquiposHeroes.Count() == 0)
+                if (this.HeroTeam.Count() == 0)
                 {
                     Result = "Enemy Wins!";
                     duelo = false;
                 }
-                else if (this.EquiposEnemy.Count() == 0)
+                else if (this.EnemyTeam.Count() == 0)
                 {
                     Result = "Heroes Wins!";
                     duelo = false;
@@ -123,43 +123,3 @@ namespace RoleplayGame
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-       
