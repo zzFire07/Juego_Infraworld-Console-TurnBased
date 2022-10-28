@@ -5,7 +5,7 @@ namespace RoleplayGame
         
         public EnemyDwarf(string name) : base (name)
         {
-            this.VictoryPoints = 25;
+            this.VictoryPoints = 1;
             
             Helmet helmet = new Helmet();
             Axe axe = new Axe();
