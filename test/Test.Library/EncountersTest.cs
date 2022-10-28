@@ -27,7 +27,9 @@ namespace Test.Library
             encounter.DoEncounter();
 
             List<Characters> expectedEnemiesList = new List<Characters>();
-            List<Characters> resultEnemiesList = encounter.EquiposEnemy;
+            List<Characters> resultEnemiesList = encounter.EnemyTeam;
+            
+            Assert.That(expectedEnemiesList, Is.EqualTo(resultEnemiesList)); 
         }
 
         [Test]
@@ -52,9 +54,9 @@ namespace Test.Library
 
             //Se inicializa y no se agrega nada porque se espera que result esté vacía
             List<Characters> expectedEnemiesList = new List<Characters>();
-            List<Characters> resultEnemiesList = encounter2.EquiposEnemy;
+            List<Characters> resultEnemiesList = encounter2.EnemyTeam;
             
-            Assert.That(resultEnemiesList, Is.EqualTo(resultEnemiesList));            
+            Assert.That(expectedEnemiesList, Is.EqualTo(resultEnemiesList));            
         }
     }
 }

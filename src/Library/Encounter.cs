@@ -30,15 +30,15 @@ namespace RoleplayGame
 
         public void Equipos()
         {
-            Console.WriteLine(" Hereoes are :");
+            Console.WriteLine("-----Hereoes-----");
             foreach (Characters hero in this.HeroTeam)
             {
                 Console.WriteLine(hero.Name);
             }
         
-            Console.WriteLine(" !VS¡");
+            Console.WriteLine("     ¡VS!     ");
 
-            Console.WriteLine(" Enemies are :");
+            Console.WriteLine("-----Enemies-----");
             foreach (Characters enemy in this.EnemyTeam)
             {
                 Console.WriteLine(enemy.Name);
@@ -109,12 +109,12 @@ namespace RoleplayGame
                 this.HeroAttack();
                 if (this.HeroTeam.Count() == 0)
                 {
-                    Result = "Enemy Wins!";
+                    Result = "-----¡Enemy team Wins!-----";
                     duelo = false;
                 }
                 else if (this.EnemyTeam.Count() == 0)
                 {
-                    Result = "Heroes Wins!";
+                    Result = "-----¡Heroes Wins!-----";
                     duelo = false;
                 }
             }
