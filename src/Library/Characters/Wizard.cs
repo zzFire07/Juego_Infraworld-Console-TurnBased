@@ -1,6 +1,6 @@
 namespace RoleplayGame
 {
-    public class Wizard : MagicCharacter, IHeroes
+    public class Wizard : MagicCharacters, IHeroes
     {
         public SpellsBook spellsBook { get; set; } = new SpellsBook();
 
@@ -9,6 +9,7 @@ namespace RoleplayGame
             Staff staff = new Staff();
 
             this.EquipItem(staff);
+            spellsBook.AddSpell();
             this.EquipItem(spellsBook);
         }
     }

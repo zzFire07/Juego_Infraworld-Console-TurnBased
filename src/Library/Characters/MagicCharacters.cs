@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public class MagicCharacter : Characters
+    public class MagicCharacters : Characters
     {
         public IList<IMagicItem> magicitems = new List<IMagicItem>();
         
-        public MagicCharacter(string name) : base(name)
+        public MagicCharacters(string name) : base(name)
         {
             
         }

@@ -85,7 +85,7 @@ namespace RoleplayGame
                                 this.RemoveEnemy(EnemyTeam[pos]);
                                 pos -= 1;
                                 EnemiesAmount -= 1;
-
+                                
                                 if (heroe.VictoryPoints >= 5)
                                 {
                                     heroe.Cure();
@@ -122,4 +122,3 @@ namespace RoleplayGame
         }
     }
 }
-

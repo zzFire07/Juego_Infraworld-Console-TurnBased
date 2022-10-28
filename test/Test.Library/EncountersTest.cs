@@ -23,18 +23,11 @@ namespace Test.Library
             encounter.AddEnemies(magoEnemigo1);
             encounter.AddEnemies(rataEnemiga1);
 
-            bool vivos = true;
-            while (vivos)
-            {
-                encounter.EnemyAttack();
-                vivos = encounter.EquiposHeroes != null;
-            }
+            encounter.Equipos();
+            encounter.DoEncounter();
 
-            //Se inicializa y no se agrega nada porque se espera que result esté vacía
-            List<Characters> expectedHeroesList = new List<Characters>();
-            List<Characters> resultHeroesList = encounter.EquiposHeroes;
-            
-            Assert.That(resultHeroesList, Is.EqualTo(resultHeroesList));
+            List<Characters> expectedEnemiesList = new List<Characters>();
+            List<Characters> resultEnemiesList = encounter.EquiposEnemy;
         }
 
         [Test]
@@ -55,16 +48,11 @@ namespace Test.Library
             encounter2.AddEnemies(magoEnemigo2);
             encounter2.AddEnemies(rataEnemiga2);
 
-            bool vivos = true;
-            while (vivos)
-            {
-                encounter2.HeroAttack();
-                vivos = encounter2.EquiposEnemigos != null;
-            }
+            encounter2.DoEncounter();
 
             //Se inicializa y no se agrega nada porque se espera que result esté vacía
             List<Characters> expectedEnemiesList = new List<Characters>();
-            List<Characters> resultEnemiesList = encounter2.EquiposEnemigos;
+            List<Characters> resultEnemiesList = encounter2.EquiposEnemy;
             
             Assert.That(resultEnemiesList, Is.EqualTo(resultEnemiesList));            
         }
