@@ -1,13 +1,15 @@
 namespace RoleplayGame
 {
-    public class Wizard : MagicCharacter, IHeroes
+    public class EnemyWizard : MagicCharacter, IEnemies
     {
         public SpellsBook spellsBook { get; set; } = new SpellsBook();
 
-        public Wizard(string name) : base(name)
+        public EnemyWizard(string name) : base(name)
         {
-            Staff staff = new Staff();
+            this.VictoryPoints = 25;
 
+            Staff staff = new Staff();
+            
             this.EquipItem(staff);
             this.EquipItem(spellsBook);
         }

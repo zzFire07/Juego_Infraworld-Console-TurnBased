@@ -6,6 +6,7 @@ namespace RoleplayGame
         public IList<IItem> items = new List<IItem>();
         public string Name { get; set; }
         public int Health { get; set; } = 100;
+        public int VictoryPoints { get; set; }
 
         public Characters(string name)
         {
@@ -64,9 +65,15 @@ namespace RoleplayGame
                 this.Health -= power - this.DefenseValue;
             }
         }
+
         public void Cure()
         {
             this.Health = 100;
+        }
+
+        public void AddVictoryPoints(int amount)
+        {
+            this.VictoryPoints += amount;
         }
     }
 }
