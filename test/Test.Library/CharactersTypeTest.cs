@@ -9,7 +9,6 @@ namespace Test.Library
         public void TestHeroes()
         {
             Wizard wizard1 = new Wizard("Juan");
-            E
 
             wizard1.spellsBook.AddSpell();
 

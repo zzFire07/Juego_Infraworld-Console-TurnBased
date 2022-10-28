@@ -4,7 +4,7 @@ namespace RoleplayGame
     {
         public EnemyRatMan(string name) : base(name)
         {
-            this.VictoryPoints = 25;
+            this.VictoryPoints = 1;
 
             Sword sword1 = new Sword();
             Sword sword2 = new Sword();
