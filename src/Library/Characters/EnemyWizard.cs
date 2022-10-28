@@ -11,7 +11,9 @@ namespace RoleplayGame
             Staff staff = new Staff();
             
             this.EquipItem(staff);
+            spellsBook.AddSpell();
             this.EquipItem(spellsBook);
+
         }
     }
 }
