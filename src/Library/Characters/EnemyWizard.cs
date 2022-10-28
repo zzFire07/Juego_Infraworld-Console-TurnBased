@@ -6,7 +6,7 @@ namespace RoleplayGame
 
         public EnemyWizard(string name) : base(name)
         {
-            this.VictoryPoints = 25;
+            this.VictoryPoints = 1;
 
             Staff staff = new Staff();
             
