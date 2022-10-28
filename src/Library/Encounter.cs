@@ -6,8 +6,8 @@ namespace RoleplayGame
 {
     public class Encounter 
     {
-        protected List<Characters> HeroTeam = new List<Characters>();
-        protected List<Characters> EnemyTeam = new List<Characters>();
+        public List<Characters> HeroTeam = new List<Characters>();
+        public List<Characters> EnemyTeam = new List<Characters>();
     
         public void AddHeroes(Characters heroes)
         {
@@ -71,26 +71,31 @@ namespace RoleplayGame
 
         public void HeroAttack()
         {
-            int EnemyF = this.EnemyTeam.Count()-1;
             foreach (Characters heroe in this.HeroTeam)
             {
+                int pos = 0;
+                int EnemiesAmount = EnemyTeam.Count();
                 if (EnemyTeam != null)
-                    foreach (Characters enemy in this.EnemyTeam)
+                    while (pos < EnemiesAmount)
                     {
-                        enemy.ReceiveAttack(heroe.AttackValue);
-                        if(enemy.IsDead)
+                        EnemyTeam[pos].ReceiveAttack(heroe.AttackValue);
+                        if(EnemyTeam[pos].IsDead)
                             {
-                                this.RemoveEnemy(enemy);
-                                heroe.AddVictoryPoints(enemy.VictoryPoints);
+                                heroe.AddVictoryPoints(EnemyTeam[pos].VictoryPoints);
+                                this.RemoveEnemy(EnemyTeam[pos]);
+                                pos -= 1;
+                                EnemiesAmount -= 1;
+                                
                                 if (heroe.VictoryPoints >= 5)
                                 {
                                     heroe.Cure();
                                     heroe.VictoryPoints = 0;
                                 }
                             }
+                        pos += 1;
                     }  
             }
-         }
+        }
 
 
         public void DoEncounter()
@@ -117,44 +122,3 @@ namespace RoleplayGame
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-       
