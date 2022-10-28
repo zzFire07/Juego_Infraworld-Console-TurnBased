@@ -8,16 +8,15 @@ namespace Test.Library
         [Test]
         public void TestAttack()
         {
-            Axe axe = new Axe();
-            SpellsBook book = new SpellsBook();
-            book.AddSpell();
-
             Dwarf dwarf1 = new Dwarf("Pedro");
+
             Wizard wizard1 = new Wizard("Juan");
+            wizard1.spellsBook.AddSpell();
 
-            dwarf1.EquipItem(axe);
-            wizard1.EquipItem(book);
-
+            //Esto comprueba que cada Wizard tenga un spellsBook individual,
+            //siendo que si apuntaran a un mismo objeto, el daño se sumaría.
+            Wizard wizard1_2 = new Wizard("Juan2");
+            wizard1_2.spellsBook.AddSpell();
 
             wizard1.ReceiveAttack(dwarf1.AttackValue);
 
@@ -29,61 +28,43 @@ namespace Test.Library
         [Test]
         public void TestCure()
         {
-            Sword sword1 = new Sword();
-            Bow bow1 = new Bow();
-            Helmet helmet1 = new Helmet();
-            Helmet helmet2 = new Helmet();
+            Archer archer2 = new Archer("Pedro");
+            Knight knight2 = new Knight("Juan");
 
-            Archer archer1 = new Archer("Pedro");
-            Knight knight1 = new Knight("Juan");
-
-            archer1.EquipItem(sword1);
-            knight1.EquipItem(bow1);
-            knight1.EquipItem(helmet1);
-            archer1.EquipItem(helmet2);
-
-
-            archer1.ReceiveAttack(knight1.AttackValue);
-            archer1.Cure();
+            archer2.ReceiveAttack(knight2.AttackValue);
+            archer2.Cure();
 
             int expected2 = 100;
-            int result2 = archer1.Health;
+            int result2 = archer2.Health;
             Assert.That(result2, Is.EqualTo(expected2));
         }
 
         [Test]
         public void TestName()
         {
-            Archer archer2 = new Archer("Pedro");
+            Archer archer3 = new Archer("Pedro");
             
             const string expected3 = "Pedro";
-            string result3 = archer2.Name;
+            string result3 = archer3.Name;
             Assert.That(result3, Is.EqualTo(expected3));
         }
 
         [Test]
          public void TestDead()
         {
-            SpellsBook book = new SpellsBook();
-            book.AddSpell();
-            Sword sword2 = new Sword();
-            Helmet helmet3 = new Helmet();
+            Dwarf dwarf4 = new Dwarf("Pedro");
+            
+            Wizard wizard4 = new Wizard("Juan");
+            wizard4.spellsBook.AddSpell();
 
-            Dwarf dwarf2 = new Dwarf("Pedro");
-            Wizard wizard2 = new Wizard("Juan");
-
-            wizard2.EquipItem(book);
-            dwarf2.EquipItem(helmet3);
-
-
-            while(dwarf2.Health > 0)
+            while(dwarf4.Health > 0)
             {
-                dwarf2.ReceiveAttack(wizard2.AttackValue);
+                dwarf4.ReceiveAttack(wizard4.AttackValue);
             }
             
 
             bool expected4 = true;
-            bool result4 = dwarf2.IsDead;
+            bool result4 = dwarf4.IsDead;
             Assert.That(result4, Is.EqualTo(expected4));
         }
     }
