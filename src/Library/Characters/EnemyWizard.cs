@@ -1,6 +1,6 @@
 namespace RoleplayGame
 {
-    public class EnemyWizard : MagicCharacter, IEnemies
+    public class EnemyWizard : MagicCharacters, IEnemies
     {
         public SpellsBook spellsBook { get; set; } = new SpellsBook();
 
