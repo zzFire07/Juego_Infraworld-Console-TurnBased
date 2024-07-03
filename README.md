@@ -1,3 +1,6 @@
+# VIEW IN RAW
+
+
 -> .vscode
 -> ↓ Assets
 .....-> Estructura.jpg
